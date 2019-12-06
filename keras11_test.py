@@ -1,4 +1,7 @@
-#멀티 레이어 퍼셉트론 : mlp
+#노드 10개 이상 
+#레이어 5개 이상(히든만)
+#epochs 100개 이상 
+#문제> 과적합시켜라.
 
 #1. 데이터
 import numpy as np
@@ -8,8 +11,7 @@ import numpy as np
 
 #리스트로 calum(열) 2개 이상 생성 (*행 무시)
 x = np.array([range(1,101), range(101,201)])
-y = np.array([range(1,101), range(101,201)])
-print(x)
+y = np.array([range(201,301)])
 
 print(x.shape)
 
@@ -22,11 +24,11 @@ print(x.shape)
 from sklearn.model_selection import train_test_split
 #train, test 영역 split
 x_train, x_test, y_train, y_test = train_test_split(
-    x, y, random_state = 66, train_size = 0.7, shuffle=False
+    x, y, random_state = 33, train_size = 0.6, shuffle=False
 )
 #분할된 test영역에서 test, val 영역 split
 x_val, x_test, y_val, y_test = train_test_split(
-    x_test, y_test, random_state = 66, test_size = 0.5, shuffle=False
+    x_test, y_test, random_state = 33, test_size = 0.5, shuffle=False
 ) #6:2:2
 
 
@@ -36,11 +38,27 @@ from keras.layers import Dense
 
 model = Sequential()
 # model.add(Dense(500, input_dim=1, activation='relu'))
-model.add(Dense(5, input_shape=(2, ), activation='relu')) #input calum 2개로 변경
+model.add(Dense(10, input_shape=(2, ), activation='relu')) #input calum 2개로 변경
 #input_shape=(2,) => input_shpae(?,2)
-model.add(Dense(3))
-model.add(Dense(4))
-model.add(Dense(2))# output calum 2개로 변경
+model.add(Dense(10))
+model.add(Dense(500))
+model.add(Dense(100))
+model.add(Dense(500))
+model.add(Dense(100))
+model.add(Dense(500))
+model.add(Dense(100))
+model.add(Dense(500))
+model.add(Dense(100))
+model.add(Dense(500))
+model.add(Dense(100))
+model.add(Dense(500))
+model.add(Dense(100))
+model.add(Dense(500))
+model.add(Dense(500))
+model.add(Dense(500))
+model.add(Dense(500))
+model.add(Dense(500))
+model.add(Dense(1))# output calum 2개로 변경
 
 model.summary()
 
@@ -54,8 +72,12 @@ model.fit(x_train, y_train, epochs=100, batch_size=1,
 loss, mse = model.evaluate(x_test, y_test, batch_size=1)
 print("mse : ", mse)
 
+# aaa = np.array([[101,102,103], [201,202,203]]) #(3,2)
+# aaa = np.transpose(aaa)
 y_predict = model.predict(x_test)
 print(y_predict)
+
+
 
 # RMSE 구하기
 from sklearn.metrics import mean_squared_error
