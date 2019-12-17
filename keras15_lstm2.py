@@ -35,7 +35,7 @@ model.compile(loss='mse', optimizer='adam')
 model.fit(x_train, y_train, epochs=300)
 
 x2 = np.array([[7,8,9,10]]) # (4, ) => (1, 4)
-x2 = x2.reshape(x2.shape[0],x2.shape[1],1)
+x2 = x2.reshape(x2.shape[0], x2.shape[1], 1)
 # x2 = np.array([7,8,9,10]) # (4, ) => (1, 4)
 # x2 = x2.reshape(1,x2.shape,1)
 y_pred = model.predict(x2)

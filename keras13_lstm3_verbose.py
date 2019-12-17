@@ -1,3 +1,4 @@
+#lstm은 연속된 데이터 dnn은 분산된 데이터 
 from numpy import array
 from keras.models import Sequential
 from keras.layers import Dense, LSTM
