@@ -1,4 +1,5 @@
 #layer의 개수와 dense(노드)개수 수정, 
+#수정
 from keras.models import Sequential
 from keras.layers import Dense
 
