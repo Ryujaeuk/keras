@@ -1,4 +1,5 @@
 #param = w + b ((input+[b]ius) * output)
+#수정본
 from keras.models import Sequential
 from keras.layers import Dense
 
